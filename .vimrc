@@ -115,6 +115,7 @@ function! s:InitNeoBundle()
 
 		filetype indent plugin on
 		syntax on
+		NeoBundleCheck
 endfunction
 
 call s:InitNeoBundle()

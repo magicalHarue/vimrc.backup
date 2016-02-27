@@ -1,2 +1,2 @@
-
+set tabstop=2
 

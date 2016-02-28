@@ -1,5 +1,5 @@
 "--------------------
-"" 基本的な設定
+" 基本的な設定
 "--------------------
 ""新しい行のインデントを現在行と同じにする
 set autoindent
@@ -46,8 +46,15 @@ set smarttab
 set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
 set grepprg=grep\ -nh
 
+"...
+"キーバインド
+"...
+
 " 検索結果のハイライトをEsc連打でクリアする
 nnoremap <ESC><ESC> :nohlsearch<CR>
+"モード切り替えを変更
+inoremap jk  <Esc>
+nnoremap <C-j> :vs<CR>
 
 " vimgrepやgrep した際に、cwindowしてしまう
 autocmd QuickFixCmdPost *grep* cwindow
@@ -71,8 +78,6 @@ if has('syntax')
     call ZenkakuSpace()
 endif
 
-" カラースキームの設定
-
 "
 " NeoBundle
 "
@@ -93,16 +98,39 @@ function! s:LoadBundles()
 		" 読み込むプラグインの指定
 		NeoBundle 'Shougo/neobundle.vim'
 		
-		"NeoBundle 'tpope/vim-surround'
+		NeoBundle 'tpope/vim-surround'
 		NeoBundle 'Shougo/unite.vim'
 		NeoBundle 'Shougo/vimfiler.vim'
+		NeoBundle 'itchyny/lightline.vim'
+		NeoBundle 'w0ng/vim-hybrid'
+		NeoBundle 'scrooloose/nerdtree'
+		NeoBundle 'osyo-manga/vim-brightest'
+		NeoBundle 'Townk/vim-autoclose'
+		NeoBundle 'thinca/vim-quickrun'
+		NeoBundle 'scrooloose/syntastic'
+
 		" ...
 		" 読み込んだプラグインの設定
 		" ...
-		NeoBundle 'w0ng/vim-hybrid'
+
+		" colorscheme setting
 		set t_Co=256
 		set background=dark
 		colorscheme hybrid
+
+		"lightline setting
+		set laststatus=2
+		let g:lightline = {
+		      \ 'colorscheme': 'jellybeans'
+		      \ }
+		" syntastic setting
+		" "JavaScriptのSyntaxチェックはjshintで
+		let g:syntastic_javascript_checker = "jshint"
+		"ファイルオープン時にはチェックをしない
+		let g:syntastic_check_on_open = 0
+		"ファイル保存時にはチェックを実施
+		let g:syntastic_check_on_save = 1
+
 endfunction
 
 " NeoBundle がインストールされているなら LoadBundles() を呼び出す

@@ -71,14 +71,20 @@ if has('syntax')
     call ZenkakuSpace()
 endif
 
+" カラースキームの設定
+
 "
 " NeoBundle
 "
 "
 " NeoBundle がインストールされていない時、
 " もしくは、プラグインの初期化に失敗した時の処理
+" viだと読み込まない
+
+if 1
+
 function! s:WithoutBundles()
-		colorscheme desert
+		"colorscheme dessert
 		" その他の処理
 endfunction
 
@@ -86,12 +92,17 @@ endfunction
 function! s:LoadBundles()
 		" 読み込むプラグインの指定
 		NeoBundle 'Shougo/neobundle.vim'
+		
 		"NeoBundle 'tpope/vim-surround'
 		NeoBundle 'Shougo/unite.vim'
 		NeoBundle 'Shougo/vimfiler.vim'
 		" ...
 		" 読み込んだプラグインの設定
 		" ...
+		NeoBundle 'w0ng/vim-hybrid'
+		set t_Co=256
+		set background=dark
+		colorscheme hybrid
 endfunction
 
 " NeoBundle がインストールされているなら LoadBundles() を呼び出す
@@ -119,3 +130,5 @@ function! s:InitNeoBundle()
 endfunction
 
 call s:InitNeoBundle()
+
+endif

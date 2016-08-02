@@ -1,5 +1,5 @@
 "--------------------
-" 基本的な設定
+" 基本的な設定 
 "--------------------
 ""新しい行のインデントを現在行と同じにする
 set autoindent
@@ -104,7 +104,7 @@ function! s:LoadBundles()
 		NeoBundle 'itchyny/lightline.vim'
 		NeoBundle 'w0ng/vim-hybrid'
 		NeoBundle 'scrooloose/nerdtree'
-		NeoBundle 'osyo-manga/vim-brightest'
+"		NeoBundle 'osyo-manga/vim-brightest'
 		NeoBundle 'Townk/vim-autoclose'
 		NeoBundle 'thinca/vim-quickrun'
 		NeoBundle 'scrooloose/syntastic'
@@ -112,8 +112,9 @@ function! s:LoadBundles()
 		" ...
 		" 読み込んだプラグインの設定
 		" ...
-
-		" colorscheme setting
+		
+		"brightest の設定
+		"colorscheme setting
 		set t_Co=256
 		set background=dark
 		colorscheme hybrid
